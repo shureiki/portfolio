@@ -1,0 +1,31 @@
+.textIcon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.textIcon[data-style="column"] {
+    gap: unset;
+    flex-direction: column;
+}
+
+.textIcon span {
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-wrap: wrap;
+}
+
+.textIcon img {
+    border-bottom: 2px double var(--gray-700);
+    max-width: 112px;
+    max-height: 112px;
+    padding-bottom: 5px;
+    margin-bottom: 9px;
+}
+
+/* PHONE */
+@media screen and (max-width: 768px) {
+    .textIcon[data-style="column"] {
+        width: 80px;
+    }
+}

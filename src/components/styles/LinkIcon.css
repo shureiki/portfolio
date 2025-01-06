@@ -1,0 +1,40 @@
+.linkIcon {
+    transition: .3s;
+}
+
+.linkIcon:has(span) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.linkIcon[data-orientation='x']:has(span) {
+    flex-direction: row;
+}
+
+.linkIcon[data-orientation='x']:has(span) :first-child {
+    border: unset;
+    border-right: 2px double var(--gray-700);
+    margin-bottom: 0;
+    margin-right: 10px;
+    padding-bottom: 0;
+    padding-right: 10px;
+}
+
+.linkIcon:hover {
+    filter: brightness(1.4);
+}
+
+.linkIcon:has(span) :first-child {
+    border-bottom: 2px double var(--gray-700);
+    max-width: 112px;
+    max-height: 112px;
+    padding-bottom: 5px;
+    margin-bottom: 9px;
+}
+
+.linkIcon span {
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-wrap: wrap;
+}

@@ -1,0 +1,30 @@
+[
+    {
+        "id": "ukiyo-ui",
+        "title": "Ukiyo Ui",
+        "description": "C'est un « pack de ressource » dédié à l'univers de Minecraft Bedrock. Le pack permet de donner un nouveau style plus esthétique, plus simple, et plus coloré.",
+        "tags": {
+            "GAMES": ["MCB"],
+            "TECHNO": ["JSON"],
+            "MC": ["ADDON", "BP"]
+        },
+        "API": {
+            "name": "cfwidget",
+            "projectId": "704780"
+        }
+    },
+    {
+        "id": "baby-mobs",
+        "title": "Baby Mobs",
+        "description": "Baby Mobs est un « pack de comportement » dédié à l'univers de Minecraft Bedrock. Cet add-on permet d'ajouter des variantes des créatures enfant plus puissant.",
+        "tags": {
+            "GAMES": ["MCB"],
+            "TECHNO": ["JSON"],
+            "MC": ["ADDON", "RP"]
+        },
+        "API": {
+            "name": "cfwidget",
+            "projectId": "852745"
+        }
+    }
+]

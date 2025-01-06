@@ -1,0 +1,127 @@
+/* MOBILE FIRST */
+
+#home {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px;
+    gap: 25px;
+}
+
+#home .title {
+    color: var(--gray-900);
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 45px;
+    margin-bottom: 8px;
+}
+
+#home article {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    max-width: 768px;
+}
+
+#home article > :last-child {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 15px;
+}
+
+#home p {
+    color: var(--gray-600);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+#home .info > *:not(:first-child) {
+    margin-top: 15px;
+}
+
+#home > div {
+    height: fit-content;
+}
+
+#home .info .date {
+    display: block;
+    font-size: 0.8em;
+    color: var(--gray-500);
+}
+
+/* ANIMATION */
+@keyframes pulse {
+    0% {
+        padding: 4px;
+        border-width: 0;
+    }
+    30% {
+        opacity: 1;
+        border-width: 3px;
+    }
+    50%, 100% {
+        opacity: 0;
+        border-color: var(--green-100);
+        padding: 9px;
+        border-width: 2px;
+    }
+    55% {
+        opacity: 1;
+    }
+}
+
+.icon-pulse {
+    position: relative;
+    min-width: 16px;
+    height: 16px;
+    background-color: var(--green-200);
+    border: 3px solid var(--green-100);
+    border-radius: 50%;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.icon-pulse::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center;
+    border: 0 solid var(--green-100);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    animation: pulse 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@media screen and (min-width: 768px) {
+    #home .title {
+        font-size: 36px;
+        line-height: 90px;
+        letter-spacing: -1.2px;
+        margin-bottom: unset;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    #home {
+        flex-direction: row;
+        padding: 90px;
+    }
+
+    #home .title {
+        font-size: 48px;
+    }
+
+    #home article {
+        padding: 0 40px;
+    }
+
+    #home > div {
+        margin-right: 40px;
+    }
+}

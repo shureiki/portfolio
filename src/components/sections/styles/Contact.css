@@ -1,0 +1,7 @@
+#contact .description {
+    font-size: 18px;
+}
+
+#contact .content {
+    justify-content: flex-start;
+}

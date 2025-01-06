@@ -1,0 +1,137 @@
+header {
+  z-index: 4;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--primary);
+  color: var(--gray-900);
+  padding: 16px 80px;
+}
+
+header .menu {
+  width: 100%;
+  display: flex;
+  gap: 24px;
+}
+
+header .menu a {
+  position: relative;
+  color: var(--dark-600);
+  font-size: 16px;
+  font-weight: 300;
+  transition: .2s ease-in-out;
+}
+
+header .menu a::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: -8px;
+  width: 60%;
+  height: 100%;
+  margin-top: 5px;
+  border-bottom: 2px solid var(--gray-600);
+  transition: .2s;
+}
+
+header .menu a:hover::after {
+  left: 0;
+  width: 100%;
+  border-bottom: 2px solid var(--gray-800);
+  transition: .2s;
+}
+
+header .menu a:hover {
+  color: var(--gray-900);
+}
+
+/* LOGO */
+@keyframes blink {
+  0%, 49% { opacity: 0; }
+  50%, 100% { opacity: 1; }
+}
+
+.logo {
+  user-select: none;
+  pointer-events: none;
+  color: var(--gray-900);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: -0.2px;
+}
+
+.logo span {
+  color: var(--gray-900);
+  animation: blink .8s infinite alternate;
+}
+
+.logo::after { content: '>' }
+.logo::before { content: '<' }
+
+/* BURGER */
+.burger { display: none; padding: 4px; }
+
+.burger span {
+  display: block;
+  height: 3px;
+  width: 25px;
+  margin: 5px;
+  background: var(--gray-900);
+  transition: 0.5s ease;
+}
+
+header :has(.menu.toggle) .burger span:nth-child(1) { transform: rotate(-45deg) translate(-5px,6px ); }
+header :has(.menu.toggle) .burger span:nth-child(2) { transform: scale(0); opacity: 0; }
+header :has(.menu.toggle) .burger span:nth-child(3) { transform: rotate(45deg) translate(-5px,-6px ); }
+
+/* TABLETTE */
+@media screen and (width < 1024px) {
+  .burger { display: block; }
+
+  nav .menu.toggle {
+    height: calc(100% - 69px);
+  }
+
+  nav .menu li {
+    display: none;
+    opacity: 0;
+  }
+
+  nav .menu.toggle li {
+    display: block;
+    text-transform: uppercase;
+    color: var(--gray-900);
+    padding: 20px 25px;
+    opacity: 1;
+    width: 100%;
+    transition: .2s ease-in-out;
+  }
+
+  nav .menu {
+    gap: 0;
+    border-top: 2px solid rgba(249, 250, 251, 0.10);
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 69px;
+    right: 0;
+    width: 100%;
+    height: 0;
+    background-color: var(--dark-default);
+    transition: 0.5s ease-in-out;
+  }
+}
+
+/* PHONE */
+@media screen and (max-width: 768px) {
+  header { padding: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo .backSlash { animation: unset; }
+}

@@ -1,0 +1,11 @@
+#about .content div {
+    display: flex;
+    flex-direction: column;
+    max-width: 1024px;
+    gap: 25px;
+}
+  
+#about .content div p {
+    border-left: 2px solid var(--gray-600);
+    padding-left: 15px;
+}

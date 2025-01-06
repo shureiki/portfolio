@@ -1,0 +1,156 @@
+#projects :is(> .container, .container > .content) {
+    flex-direction: column;
+}
+
+#projects .content .projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+#projects .content .projects > .title {
+    align-self: flex-start;
+}
+
+#projects .content .projects > .content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+#projects .content .tools {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#projects .content .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* SEARCH BAR */
+#projects .searchBar {
+    display: flex;
+    border-radius: 40px;
+    box-shadow: 0px 25px 25px 0px rgba(0, 0, 0, 0.15);
+}
+
+#projects .searchBar input {
+    height: 100%;
+    width: 100%;
+    font-size: 1em;
+    padding: 10px 20px;
+    color: var(--blue-900);
+    border: 2px solid var(--blue-200);
+    background-color: var(--blue-100);
+    border-radius: 40px 0 0 40px;
+    transition: .2s;
+}
+
+#projects .searchBar input::placeholder {
+    color: #8391af;
+}
+
+#projects .searchBar input:is(:hover, :focus, :focus-visible) {
+    outline: none;
+} 
+
+#projects .searchBar input::-webkit-search-cancel-button {
+    display: none;
+}
+
+#projects .searchBar .submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--blue-200);
+    background-color: var(--blue-200);
+    border-radius: 0 40px 40px 0;
+    padding: 0 20px 0 10px;
+}
+
+/* BUTTONS */
+#projects .projects .buttons {
+    display: flex;
+    align-items: center;
+}
+
+#projects .projects .buttons :is(.previous, .next) {
+    background-color: var(--blue-200);
+    border: none;
+    color: var(--blue-900);
+    padding: 12px 18px;
+    font-size: 1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 40px;
+    transition: .2s;
+}
+
+#projects .projects .buttons :is(.previous, .next):disabled {
+    filter: grayscale(1);
+}
+
+#projects .projects .buttons .numberPages {
+    order: -1;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 15px;
+    background-color: var(--gray-300);;
+    border: 2px solid var(--gray-200);
+    border-radius: 15px;
+}
+
+/* TOOL PARTIAL LOAD */
+@keyframes blinkPartialLoad {
+    to {
+        background-color: var(--blue-600);
+        border-color: var(--blue-600);
+        color: var(--blue-800);
+    }
+}
+
+#projects .partialLoad {
+    --background-color: var(--blue-400);
+    --border-color: var(--blue-500);
+    --font-color: var(--blue-700);
+    display: flex;
+    align-items: center;
+    align-self: center;
+    gap: 5px;
+    width: fit-content;
+    background-color: var(--background-color);
+    border: 2px solid var(--border-color);
+    color: var(--font-color);
+    padding: 5px;
+    border-radius: 15px;
+    animation: blinkPartialLoad .5s infinite alternate;
+}
+
+#projects .partialLoad p {
+    color: currentColor;
+    padding-right: 5px;
+}
+
+@media screen and (min-width: 768px) {
+    #projects .content .buttons {
+        flex-direction: row;
+    }
+
+    #projects .content .projects > .content {
+        gap: 25px;
+    }
+
+    #projects .projects .buttons :is(.previous, .next):hover:not(:disabled) {
+        background-color: var(--blue-300);
+    }
+
+    #projects .projects .buttons .numberPages {
+        order: 0;
+    }
+}
