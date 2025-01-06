@@ -1,0 +1,27 @@
+@import 'tailwindcss';
+
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
+
+@theme {
+    --color-accent: #4A52E8;
+}
+
+@layer base {
+    :root {
+        --gradient-color: color-mix(in oklab, var(--color-accent) 30%, transparent);
+    }
+
+    html {
+        color: white;
+        font-family: 'Iceland', sans-serif;
+    }
+
+    body {
+        background: linear-gradient(225deg, var(--gradient-color) 0%, transparent 15%, transparent 85%, var(--gradient-color) 100%);
+    }
+
+    h1, h2 {
+        font-family: 'Big Shoulders Display', sans-serif;
+    }
+}

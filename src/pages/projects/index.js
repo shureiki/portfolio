@@ -4,9 +4,9 @@ export default function Home() {
     return (
         <>
             <Head>
-                <meta name='description' content='Portfolio' />
+                <meta name='description' content='Portfolio - Projects' />
             </Head>
-            
+
             <main>
 
             </main>
