@@ -1,11 +1,18 @@
-@import 'tailwindcss';
-
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
 
+@import 'tailwindcss';
+
 @theme {
+    /* COLORS */
     --color-accent: #4A52E8;
+
+    /* FONTS */
+    --font-iceland: 'Iceland';
+    --font-bigShouldersDisplay: 'Big Shoulders Display';
 }
+
+/* // drop-shadow-[0_0_3px_rgba(255,255,255,0.4)] */
 
 @layer base {
     :root {
@@ -23,5 +30,15 @@
 
     h1, h2 {
         font-family: 'Big Shoulders Display', sans-serif;
+    }
+}
+
+@layer utilities {
+    .corner {
+        @apply absolute h-2/8 w-2/8 max-w-8 max-h-8 border-accent; 
+    }
+
+    .drop-shadow-crushed {
+        filter: drop-shadow(0 0 3px color-mix(in oklab, var(--tw-shadow-color) 100%, white));
     }
 }
