@@ -6,7 +6,7 @@ export default function Document() {
             <Head>
                 <title>Portfolio | Lenny 👋</title>
             </Head>
-            <body className='relative bg-black min-h-svh p-2'>
+            <body className='relative bg-black min-h-svh p-4'>
                 <Main />
                 <NextScript />
             </body>
