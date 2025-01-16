@@ -8,7 +8,7 @@ export default function Home() {
             </Head>
             
             <main>
-
+                <p>Test</p>
             </main>
         </>
     );

@@ -2,11 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
 
 @import 'tailwindcss';
+@config '../tailwind.config.js';
 
 @theme {
     /* COLORS */
-    --color-accent: #00CC00;
-    /* --color-accent: #4A52E8; */
+    --color-accent: #4A52E8;
 
     /* FONTS */
     --font-iceland: 'Iceland';
