@@ -6,7 +6,7 @@
 
 @theme {
     /* COLORS */
-    --color-accent: #4A52E8;
+    --color-accent: var(--accent-season, #4A52E8);
 
     /* FONTS */
     --font-iceland: 'Iceland';
