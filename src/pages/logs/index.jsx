@@ -8,7 +8,7 @@ export default function Home() {
             </Head>
 
             <main>
-
+                <p className='h-800'>Lorem Ipsum</p>
             </main>
         </>
     );

@@ -6,7 +6,11 @@
 
 @theme {
     /* COLORS */
-    --color-accent: var(--accent-season, #4A52E8);
+    --color-accent: #ff5d5d;
+    /* --color-accent: #00ee00; */
+    /* --color-accent: var(--accent-season, #4A52E8); */
+
+    --bevel-size: 0.5rem;
 
     /* FONTS */
     --font-iceland: 'Iceland';
@@ -17,6 +21,42 @@
     :root {
         --gradient-color: color-mix(in oklab, var(--color-accent) 30%, transparent);
     }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    #__next {
+        height: 100%;
+    }
+
+    ::-webkit-scrollbar {
+        width: 20px;
+    }
+
+    ::-webkit-scrollbar-track {
+        border-right: 10px #303030e7 solid;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-right: 10px var(--color-accent) solid;
+    }
+/* 
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: #303030e7;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: var(--color-accent);
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: color-mix(in oklab, var(--color-accent) 100%, black 15%);
+    } */
 
     html {
         color: white;
@@ -33,6 +73,58 @@
 }
 
 @layer utilities {
+    .bevel-tl {
+        clip-path: polygon(
+            var(--bevel-size) 0,
+            100% 0, 100% 100%,
+            0 100%,
+            0 var(--bevel-size)
+        );
+    }
+
+    .bevel-bl {
+        clip-path: polygon(
+            100% 0,
+            100% 100%,
+            var(--bevel-size) 100%,
+            0 calc(100% - var(--bevel-size)),
+            0 0
+        );
+    }
+
+    .bevel-tr {
+        clip-path: polygon(
+            calc(100% - var(--bevel-size)) 0%,
+            100% var(--bevel-size),
+            100% 100%,
+            0 100%,
+            0 0
+        );
+    }
+
+    .bevel-br {
+        clip-path: polygon(
+            100% 0,
+            100% calc(100% - var(--bevel-size)),
+            calc(100% - var(--bevel-size)) 100%,
+            0 100%,
+            0 0
+        );
+    }
+
+    .bevel {
+        clip-path: polygon(
+            var(--bevel-size) 0,
+            calc(100% - var(--bevel-size)) 0,
+            100% var(--bevel-size),
+            100% calc(100% - var(--bevel-size)),
+            calc(100% - var(--bevel-size)) 100%,
+            var(--bevel-size) 100%,
+            0 calc(100% - var(--bevel-size)),
+            0 var(--bevel-size)
+        );
+    }
+
     .corner {
         @apply absolute h-2/8 w-2/8 max-w-8 max-h-8 border-accent; 
     }

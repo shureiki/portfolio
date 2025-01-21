@@ -2,6 +2,7 @@ import { LinkedIn, GitHub } from '@mui/icons-material';
 
 const userInfo = {
     localisation: 'Nantes 44',
+    old: Math.floor((new Date() - new Date('10-27-2005')) / (1000 * 60 * 60 * 24 * 365)),
     email: 'l.loquais44@gmail.com',
     hasJob: false,
     network: [

@@ -7,7 +7,9 @@ export default function Box({ className, children }) {
                 <div className='corner -bottom-0.75 -left-0.75 border-b-4 border-l-4'></div>
                 <div className='corner -bottom-0.75 -right-0.75 border-b-4 border-r-4'></div>
             </div>
-            {children}
+            <div className='relative h-full'>
+                {children}
+            </div>
         </div>
     );
 }

@@ -9,12 +9,16 @@ export default function Document() {
     ];
 
     const now = new Date();
-    const currentMonth = now.getMonth() + 1;
+    const currentMonth = 12;
+    // const currentMonth = now.getMonth() + 1;
 
     return (
-        <Html lang='fr' style={{ '--accent-season': seasonColors[Math.floor(currentMonth / 3) % seasonColors.length] }}>
+        <Html
+            lang='fr'
+            style={{ '--accent-season': seasonColors[Math.floor(currentMonth / 3) % seasonColors.length] }}
+        >
             <Head />
-            <body className='relative bg-black min-h-svh p-4 md:px-12 md:py-10'>
+            <body className='relative bg-black p-4 md:h-svh md:px-12 md:py-10'>
                 <Main />
                 <NextScript />
             </body>

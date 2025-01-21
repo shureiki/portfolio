@@ -46,7 +46,8 @@ export default function Layout({ children }) {
 	const { isOpen, toggleOpenState } = useMenu();
 
 	return (
-		<div className='flex flex-col gap-4 md:flex-row'>
+		<div className='flex flex-col md:flex-row h-full gap-4'>
+			{/* Left Side */}
 			<div className='flex flex-col gap-4'>
 				<div className='flex flex-wrap gap-4 justify-center md:flex-nowrap md:flex-col md:max-w-xs'>
 					<div className='min-w-40 max-w-90 flex-1'>
@@ -66,7 +67,7 @@ export default function Layout({ children }) {
 
 						<hgroup className='flex flex-col uppercase'>
 							<h4 className='text-lg font-iceland'>Âge</h4>
-							<div className='text-accent text-xl font-bold font-bigShouldersDisplay'>19 ans</div>
+							<div className='text-accent text-xl font-bold font-bigShouldersDisplay'>{userInfo.old} ans</div>
 						</hgroup>
 					</div>
 				</div>
@@ -75,7 +76,7 @@ export default function Layout({ children }) {
 					{!userInfo.hasJob && (
 						<div className='flex items-center gap-2'>
 							<span className='relative flex h-4 w-4'>
-								<span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75'></span>
+								<span className='animate-ping absolute inline-flex w-full rounded-full bg-accent opacity-75 h-full'></span>
 								<span className='relative inline-flex rounded-full h-4 w-4 bg-accent'></span>
 							</span>
 
@@ -104,9 +105,8 @@ export default function Layout({ children }) {
 				</div>
 			</div>
 
-			<div className='flex flex-col-reverse justify-end lg:flex-col lg:justify-start items-center gap-4 w-full'>
-				<Box className='p-4 w-full h-fit max-w-5xl md:px-6 lg:px-8 lg:py-4'>{children}</Box>
-				
+			<div className='h-full flex flex-col items-center gap-4 w-full'>
+				{/* Navbar */}
 				<div className='w-full max-w-5xl'>
 					{screenWidth < 768 ? (
 						<div>
@@ -142,7 +142,7 @@ export default function Layout({ children }) {
 							{/* Menu for min-md */}
 							{links.map(({ title, href }, idx) => (
 								<Link
-									className={`flex border-l-3 border-white/40 flex-1 p-2 bg-white/8 [&.active]:bg-accent/50 [a.active]:border-accent ${pathname === href ? 'active' : ''}`}
+									className={`bevel-br flex border-l-3 border-white/40 flex-1 p-2 bg-white/8 hover:bg-white/10 [&.active]:bg-accent/50 [a.active]:border-accent ${pathname === href ? 'active' : ''}`}
 									href={href}
 									key={idx}
 								>
@@ -151,6 +151,17 @@ export default function Layout({ children }) {
 							))}
 						</div>
 					)}
+				</div>
+
+				{/* Children box */}
+				<div className='overflow-hidden p-0.5 w-full max-w-6xl'>
+					<Box className='relative w-full h-full border-2 border-white/13 bg-black/20 backdrop-blur-2xl'>
+						<div className='grow overflow-hidden flex p-2 w-full h-full lg:p-4'>
+							<div className='overflow-auto flex-1 max-h-full'>
+								{children}
+							</div>
+						</div>
+					</Box>
 				</div>
 			</div>
 		</div>
