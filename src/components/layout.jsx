@@ -1,6 +1,9 @@
 // Components
+import Button from '@/components/common/button.jsx';
 import Box from '@/components/box';
-import Button from '@/components/common/button';
+import CV from '@/components/CV';
+
+import { Description } from '@mui/icons-material';
 import Icon from '@mui/material/Icon';
 
 // NextJs
@@ -9,12 +12,17 @@ import { useRouter } from 'next/router';
 
 // Context
 import { useMenu } from '@/contexts/MenuContext';
+import { useTheme } from '@/contexts/ThemeContext';
 
 // Hooks
 import useScreen from '@/hooks/useScreen';
+import useSeason from '@/utils/season';
 
 // Data
 import userInfo from '@/data/userInfo';
+
+// Built-In
+import { pdf } from '@react-pdf/renderer';
 
 const UserAvatar = () => {
 	return (
@@ -44,6 +52,23 @@ export default function Layout({ children }) {
 	const { screenWidth } = useScreen();
 
 	const { isOpen, toggleOpenState } = useMenu();
+
+	const { currentTheme } = useTheme();
+	const { currentSeason } = useSeason();
+
+	const downloadPDF = async () => {
+		const blob = await pdf(<CV accentColor={currentTheme} seasonName={currentSeason.name} />).toBlob();
+		const url = URL.createObjectURL(blob);
+
+		const link = document.createElement('a');
+		link.href = url;
+		link.download = 'Lenny LOQUAIS - CV.pdf';
+		document.body.appendChild(link);
+		link.click();
+
+		URL.revokeObjectURL(url);
+		document.body.removeChild(link);
+	};
 
 	return (
 		<div className='flex flex-col md:flex-row h-full gap-4'>
@@ -100,6 +125,12 @@ export default function Layout({ children }) {
 									</div>
 								</Button>
 							))}
+							<Button className='flex-1 min-w-fit text-nowrap' onClick={downloadPDF}>
+								<div className='flex items-center justify-between'>
+									<p>Télécharger le CV</p>
+									<Description fontSize='medium' />
+								</div>
+							</Button>
 						</div>
 					</div>
 				</div>

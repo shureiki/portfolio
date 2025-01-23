@@ -6,9 +6,13 @@
 
 @theme {
     /* COLORS */
-    --color-accent: #ff5d5d;
+    /* Cyberpunk */
+    /* --color-accent: #ff5d5d; */
+
+    /* Fallout */
     /* --color-accent: #00ee00; */
-    /* --color-accent: var(--accent-season, #4A52E8); */
+
+    --color-accent: var(--accent-season, #FFF);
 
     --bevel-size: 0.5rem;
 
@@ -41,22 +45,6 @@
     ::-webkit-scrollbar-thumb {
         border-right: 10px var(--color-accent) solid;
     }
-/* 
-    ::-webkit-scrollbar {
-        width: 10px;
-    }
-    
-    ::-webkit-scrollbar-track {
-        background: #303030e7;
-    }
-    
-    ::-webkit-scrollbar-thumb {
-        background: var(--color-accent);
-    }
-    
-    ::-webkit-scrollbar-thumb:hover {
-        background: color-mix(in oklab, var(--color-accent) 100%, black 15%);
-    } */
 
     html {
         color: white;

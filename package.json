@@ -14,10 +14,15 @@
         "@emotion/styled": "^11.14.0",
         "@mui/icons-material": "^6.4.0",
         "@mui/material": "^6.4.0",
+        "@react-pdf/renderer": "^4.1.6",
         "@tailwindcss/postcss": "4.0.0-beta.9",
+        "chroma-js": "^3.1.2",
+        "html2canvas": "^1.4.1",
+        "jspdf": "^2.5.2",
         "next": "15.1.3",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
+        "react-pdf-tailwind": "^2.3.0",
         "tailwindcss": "4.0.0-beta.9"
     }
 }
