@@ -43,7 +43,7 @@ export default function Home() {
                                 <h2 className='font-iceland'>Projets</h2>
                             </div>
                             <ul className='columns-sm gap-2'>
-                                {projectsWithoutHighlighted.map(({ id, name, description, html_url, homepage, language, topics, stargazers_count }, idx) => (
+                                {projectsWithoutHighlighted.map(({ name, description, html_url, homepage, language, topics, stargazers_count }, idx) => (
                                     <li key={idx} className='first:mt-0 mt-2 break-inside-avoid'>
                                         <ProjectCard
                                             title={name}

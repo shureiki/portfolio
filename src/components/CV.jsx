@@ -8,7 +8,6 @@ import { FaGraduationCap } from "react-icons/fa";
 
 import userInfo from '@/data/userInfo';
 import userSkills from '@/data/userSkills';
-import useProjects from '@/hooks/useProjects';
 
 Font.register({
     family: 'Iceland',
@@ -120,7 +119,7 @@ const CV = ({ projects, accentColor, seasonName }) => {
                                         <View style={[tw('border-b-4 border-l-4 absolute h-8 w-8 border-accent'), { bottom: -3, left: -3 }]}></View>
                                         <View style={[tw('border-b-4 border-r-4 absolute h-8 w-8 border-accent'), { bottom: -3, right: -3 }]}></View>
                                     </View>
-                                    <Image src='/avatar.jpg' />
+                                    <Image src='/avatar.jfif' />
                                 </View>
 
                                 {/* Contact */}

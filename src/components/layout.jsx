@@ -23,13 +23,12 @@ import userInfo from '@/data/userInfo';
 
 // Built-In
 import { pdf } from '@react-pdf/renderer';
-import { useEffect } from 'react';
 import useProjects from '@/hooks/useProjects';
 
 const UserAvatar = () => {
 	return (
 		<Box className='p-2'>
-			<img src='/avatar.jpg' alt='Avatar' />
+			<img src='/avatar.jfif' alt='Avatar' />
 		</Box>
 	)
 }
@@ -40,12 +39,16 @@ const links = [
 		href: '/'
 	},
 	{
-		title: 'logs',
-		href: '/logs' 
+		title: 'Compétences',
+		href: '/skills' 
 	},
 	{
 		title: 'Projets',
 		href: '/projects'
+	},
+	{
+		title: 'logs',
+		href: '/logs' 
 	}
 ];
 
@@ -55,12 +58,9 @@ export default function Layout({ children }) {
 
 	const { isOpen, toggleOpenState } = useMenu();
 
-	const { setCyberpunkTheme, currentTheme } = useTheme();
+	const { currentTheme } = useTheme();
 	const { currentSeason } = useSeason();
 
-	// useEffect(() => {
-	// 	setCyberpunkTheme();
-	// }, []);
 	const { allProjects, loading } = useProjects();
 
     const projects = allProjects
@@ -71,7 +71,7 @@ export default function Layout({ children }) {
             }
 
             return b.stargazers_count - a.stargazers_count;
-        }).slice(0, 4)
+        }).slice(0, 3);
 
 
 	const downloadPDF = async () => {
@@ -134,7 +134,7 @@ export default function Layout({ children }) {
 						<a className='text-accent text-xl font-bold font-bigShouldersDisplay underline' href={`mailto:${userInfo.email}`}>{userInfo.email}</a>
 					</hgroup>
 
-					<div className='flex flex-col uppercase col-span-2'>
+					<div className='flex flex-col uppercase col-span-2 max-w-100'>
 						<h4 className='text-lg font-iceland'>Sociales</h4>
 						<div className='flex flex-wrap gap-2'>
 							{userInfo.network.map(({ name, link, icon }) => (
