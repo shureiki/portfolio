@@ -1,5 +1,9 @@
 import Head from 'next/head';
 
+import Icon from '@/components/icon';
+
+import userSkills from '@/data/userSkills';
+
 export default function Home() {
     return (
         <>
@@ -20,6 +24,14 @@ export default function Home() {
                 <div id='wishes'>
                     <h5 className='text-[#7A7A7A]'>Mes souhaits</h5>
                     <p className='text-lg'>À long terme, mon objectif est clair : devenir développeur de jeux vidéo. Depuis mes débuts dans la programmation, cette branche m’a toujours fasciné par sa capacité à allier créativité et technique pour créer des expériences immersives et interactives. Je souhaite continuer à enrichir mes compétences en explorant divers aspects du développement, comme le web ou le mobile, tout en restant orienté vers mon objectif final. Ces expériences me permettront d’acquérir une perspective globale et des outils variés, essentiels pour exceller dans l’industrie du jeu vidéo. Créer des univers captivants, travailler sur des mécaniques innovantes et collaborer avec d'autres passionnés dans des projets ambitieux sont des aspirations qui me motivent à chaque étape de mon apprentissage et de ma carrière.</p>
+                </div>
+                <div>
+                    {userSkills.map(({ name, icon }, idx) => (
+                        <div key={idx}>
+                            <Icon component={icon} />
+                            <p>{name}</p>
+                        </div>
+                    ))}
                 </div>
             </main>
         </>

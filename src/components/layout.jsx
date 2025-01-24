@@ -4,7 +4,7 @@ import Box from '@/components/box';
 import CV from '@/components/CV';
 
 import { Description } from '@mui/icons-material';
-import Icon from '@mui/material/Icon';
+import Icon from '@/components/icon';
 
 // NextJs
 import Link from 'next/link';
@@ -23,11 +23,12 @@ import userInfo from '@/data/userInfo';
 
 // Built-In
 import { pdf } from '@react-pdf/renderer';
+import { useEffect } from 'react';
 
 const UserAvatar = () => {
 	return (
 		<Box className='p-2'>
-			<img src='https://i.pinimg.com/736x/e0/61/d6/e061d65b5bf5b4ecc39c7feb35c688e7.jpg' alt='Avatar' />
+			<img src='/avatar.jpg' alt='Avatar' />
 		</Box>
 	)
 }
@@ -53,8 +54,12 @@ export default function Layout({ children }) {
 
 	const { isOpen, toggleOpenState } = useMenu();
 
-	const { currentTheme } = useTheme();
+	const { setCyberpunkTheme, currentTheme } = useTheme();
 	const { currentSeason } = useSeason();
+
+	// useEffect(() => {
+	// 	setCyberpunkTheme();
+	// }, []);
 
 	const downloadPDF = async () => {
 		const blob = await pdf(<CV accentColor={currentTheme} seasonName={currentSeason.name} />).toBlob();
@@ -121,14 +126,14 @@ export default function Layout({ children }) {
 								<Button className='flex-1 min-w-35' href={link} key={name}>
 									<div className='flex items-center justify-between'>
 										<p>{name}</p>
-										<Icon component={icon} fontSize='medium' />
+										<Icon component={icon} />
 									</div>
 								</Button>
 							))}
 							<Button className='flex-1 min-w-fit text-nowrap' onClick={downloadPDF}>
 								<div className='flex items-center justify-between'>
 									<p>Télécharger le CV</p>
-									<Description fontSize='medium' />
+									<Description />
 								</div>
 							</Button>
 						</div>

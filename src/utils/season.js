@@ -20,8 +20,7 @@ const useSeason = () => {
 
     const month = (new Date().getMonth() + 1);
 
-    const seasonIndex = 1;
-    // const seasonIndex = Math.floor((month - 1) / 3) % seasons.length;
+    const seasonIndex = Math.floor((month - 1) / 3) % seasons.length;
     const currentSeason = seasons[seasonIndex];
 
     return {

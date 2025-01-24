@@ -17,7 +17,7 @@ export const ThemeProvider = ({ children }) => {
     
     const setCustomTheme = (color) => {
         setIsSeasonTheme(true);
-        setCustomTheme(color);
+        setCurrentTheme(color);
     };
 
     const setCyberpunkTheme = () => setCustomTheme('#FF5D5D');
