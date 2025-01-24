@@ -4,7 +4,8 @@ const userProjects = [
         description: `Focus Leveling est une application web ludique qui transforme la gestion du temps en un jeu. Inspirée du retrogaming et du Manhwa "Solo Leveling", elle permet de suivre ses progrès, gagner des points d'expérience et rester motivé grâce à une communauté engagée.`,
         language: 'PHP',
         homepage: 'https://focus-leveling.fr',
-        topics: [ 'to-portfolio', 'manhwa', 'laravel', 'javascript', 'vuejs', 'js', 'leveling', 'wip' ]
+        topics: [ 'to-portfolio', 'manhwa', 'laravel', 'javascript', 'vuejs', 'js', 'leveling', 'wip' ],
+        showOnCV: true
     },
     {
         name: 'Distem',

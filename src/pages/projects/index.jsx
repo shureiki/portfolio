@@ -1,24 +1,10 @@
-import { useMemo } from 'react';
+import Head from 'next/head';
 
 import ProjectCard from '@/components/project-card.jsx';
-import useFetch from '@/hooks/useFetch';
-import Head from 'next/head';
-import userProjects from '@/data/userProjects';
+import useProjects from '@/hooks/useProjects';
 
 export default function Home() {
-    const { data, loading } = useFetch(`https://api.github.com/users/shureiki/repos`);
-
-    const projects = useMemo(() => {
-        return [ ...userProjects, ...data ?? [] ];
-    }, [data]);
-
-    const highlightedProjects = useMemo(() => {
-        return projects.filter((repo) => repo.topics?.includes('to-portfolio'));
-    }, [data]);
-
-    const projectsWithoutHighlighted = useMemo(() => {
-        return projects.filter((repo) => !repo.topics?.includes('to-portfolio')) || [];
-    }, [data]);
+    const { loading, highlightedProjects, projectsWithoutHighlighted } = useProjects();
 
     return (
         <>

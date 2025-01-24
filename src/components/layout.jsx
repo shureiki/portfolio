@@ -24,6 +24,7 @@ import userInfo from '@/data/userInfo';
 // Built-In
 import { pdf } from '@react-pdf/renderer';
 import { useEffect } from 'react';
+import useProjects from '@/hooks/useProjects';
 
 const UserAvatar = () => {
 	return (
@@ -60,9 +61,23 @@ export default function Layout({ children }) {
 	// useEffect(() => {
 	// 	setCyberpunkTheme();
 	// }, []);
+	const { allProjects, loading } = useProjects();
+
+    const projects = allProjects
+        .filter(({ description, language, updated_at, showOnCV }) => showOnCV || (description && language && updated_at))
+        .sort((a, b) => {
+            if (a.showOnCV) {
+                return 1;
+            }
+
+            return b.stargazers_count - a.stargazers_count;
+        }).slice(0, 4)
+
 
 	const downloadPDF = async () => {
-		const blob = await pdf(<CV accentColor={currentTheme} seasonName={currentSeason.name} />).toBlob();
+		if (loading) return;
+
+		const blob = await pdf(<CV projects={projects} accentColor={currentTheme} seasonName={currentSeason.name} />).toBlob();
 		const url = URL.createObjectURL(blob);
 
 		const link = document.createElement('a');
@@ -132,7 +147,7 @@ export default function Layout({ children }) {
 							))}
 							<Button className='flex-1 min-w-fit text-nowrap' onClick={downloadPDF}>
 								<div className='flex items-center justify-between'>
-									<p>Télécharger le CV</p>
+									<p>{loading ? 'Préparation du CV..' : 'Télécharger le CV'}</p>
 									<Description />
 								</div>
 							</Button>
