@@ -28,7 +28,7 @@ import useProjects from '@/hooks/useProjects';
 const UserAvatar = () => {
 	return (
 		<Box className='p-2'>
-			<img src='/avatar.jfif' alt='Avatar' />
+			<img src='/avatar.jpg' alt='Avatar' />
 		</Box>
 	)
 }
