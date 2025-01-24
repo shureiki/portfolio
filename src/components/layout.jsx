@@ -30,7 +30,7 @@ const UserAvatar = () => {
 		<Box className='p-2'>
 			<img src='/avatar.jpg' alt='Avatar' />
 		</Box>
-	)
+	);
 }
 
 const links = [
